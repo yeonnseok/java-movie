@@ -1,4 +1,5 @@
 package domain;
 
-public class DiscountPolicy {
+public interface DiscountPolicy {
+    Money calculateDiscountAmount();
 }
