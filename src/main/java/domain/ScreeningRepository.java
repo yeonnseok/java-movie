@@ -1,6 +1,6 @@
 package domain;
 
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -11,13 +11,13 @@ public class ScreeningRepository {
     static {
         screenings = new ArrayList<>(
                 Arrays.asList(
-                        new Screening(MovieRepository.movies().get(0), 1, LocalTime.now()),
-                        new Screening(MovieRepository.movies().get(0), 2, LocalTime.now()),
-                        new Screening(MovieRepository.movies().get(0), 3, LocalTime.now()),
-                        new Screening(MovieRepository.movies().get(1), 1, LocalTime.now()),
-                        new Screening(MovieRepository.movies().get(1), 2, LocalTime.now()),
-                        new Screening(MovieRepository.movies().get(2), 1, LocalTime.now()),
-                        new Screening(MovieRepository.movies().get(3), 1, LocalTime.now())
+                        new Screening(MovieRepository.movies().get(0), 1, LocalDateTime.now()),
+                        new Screening(MovieRepository.movies().get(0), 2, LocalDateTime.now()),
+                        new Screening(MovieRepository.movies().get(0), 3, LocalDateTime.now()),
+                        new Screening(MovieRepository.movies().get(1), 1, LocalDateTime.now()),
+                        new Screening(MovieRepository.movies().get(1), 2, LocalDateTime.now()),
+                        new Screening(MovieRepository.movies().get(2), 1, LocalDateTime.now()),
+                        new Screening(MovieRepository.movies().get(3), 1, LocalDateTime.now())
                 )
         );
     }

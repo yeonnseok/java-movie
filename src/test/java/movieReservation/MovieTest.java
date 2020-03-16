@@ -6,7 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -22,8 +22,8 @@ public class MovieTest {
                 new AmountDiscountPolicy(Money.wons(2000L)));
         movie2 = new Movie("스파이더맨", Duration.ofMinutes(100), Money.wons(10000L),
                 new PercentDiscountPolicy(0.05));
-        screening = new Screening(movie, 1, LocalTime.now());
-        screening2 = new Screening(movie2, 1, LocalTime.now());
+        screening = new Screening(movie, 1, LocalDateTime.now());
+        screening2 = new Screening(movie2, 1, LocalDateTime.now());
     }
 
     @DisplayName("금액 할인 정책 적용 후 할인된 영화 가격 확인")

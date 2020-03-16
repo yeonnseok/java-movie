@@ -1,13 +1,13 @@
 package domain;
 
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 public class Screening {
     private final Movie movie;
     private final int sequence;
-    private final LocalTime whenScreened;
+    private final LocalDateTime whenScreened;
 
-    public Screening(Movie movie, int sequence, LocalTime whenScreened) {
+    public Screening(Movie movie, int sequence, LocalDateTime whenScreened) {
         this.movie = movie;
         this.sequence = sequence;
         this.whenScreened = whenScreened;
@@ -19,5 +19,9 @@ public class Screening {
 
     public boolean isSequence(int sequence) {
         return this.sequence == sequence;
+    }
+
+    public LocalDateTime getStartTime() {
+        return whenScreened;
     }
 }
