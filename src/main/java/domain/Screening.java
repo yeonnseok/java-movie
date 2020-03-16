@@ -16,4 +16,8 @@ public class Screening {
     public Money getMovieFee() {
         return movie.getFee();
     }
+
+    public boolean isSequence(int sequence) {
+        return this.sequence == sequence;
+    }
 }
