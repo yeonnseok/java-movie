@@ -1,14 +1,17 @@
 package domain;
 
-public class AmountDiscountPolicy implements DiscountPolicy {
+import java.util.Arrays;
+
+public class AmountDiscountPolicy extends DefaultDiscountPolicy {
     private final Money discountAmount;
 
-    public AmountDiscountPolicy(Money discountAmount) {
+    public AmountDiscountPolicy(Money discountAmount, DiscountCondition... discountConditions) {
+        super(Arrays.asList(discountConditions));
         this.discountAmount = discountAmount;
     }
 
     @Override
-    public Money calculateDiscountAmount(Screening screening) {
+    public Money getDiscountAmount(Screening screening) {
         return discountAmount;
     }
 }

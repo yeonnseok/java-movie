@@ -5,8 +5,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -19,9 +21,15 @@ public class MovieTest {
     @BeforeEach
     void setUp() {
         movie = new Movie("기생충", Duration.ofMinutes(110), Money.wons(9000L),
-                new AmountDiscountPolicy(Money.wons(2000L)));
+                new AmountDiscountPolicy(Money.wons(2000L),
+                        new SequenceCondition(1),
+                        new PeriodCondition(DayOfWeek.MONDAY, LocalTime.of(7, 0), LocalTime.of(10, 0))
+                ));
         movie2 = new Movie("스파이더맨", Duration.ofMinutes(100), Money.wons(10000L),
-                new PercentDiscountPolicy(0.05));
+                new PercentDiscountPolicy(0.05,
+                        new SequenceCondition(1),
+                        new SequenceCondition(2)
+                ));
         screening = new Screening(movie, 1, LocalDateTime.now());
         screening2 = new Screening(movie2, 1, LocalDateTime.now());
     }
