@@ -8,7 +8,7 @@ public class AmountDiscountPolicy implements DiscountPolicy {
     }
 
     @Override
-    public Money calculateDiscountAmount() {
+    public Money calculateDiscountAmount(Screening screening) {
         return discountAmount;
     }
 }

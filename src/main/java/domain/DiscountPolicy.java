@@ -1,5 +1,5 @@
 package domain;
 
 public interface DiscountPolicy {
-    Money calculateDiscountAmount();
+    Money calculateDiscountAmount(Screening screening);
 }

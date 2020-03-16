@@ -64,4 +64,8 @@ public class Money {
         sb.append('}');
         return sb.toString();
     }
+
+    public long getAmount() {
+        return amount.longValue();
+    }
 }

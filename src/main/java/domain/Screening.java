@@ -12,4 +12,8 @@ public class Screening {
         this.sequence = sequence;
         this.whenScreened = whenScreened;
     }
+
+    public Money getMovieFee() {
+        return movie.getFee();
+    }
 }
