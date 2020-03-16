@@ -11,8 +11,8 @@ public class MovieRepository {
     static {
         movies = new ArrayList<>(
                 Arrays.asList(
-                        new Movie("기생충", Duration.ofMinutes(110), Money.wons(10000L), new AmountDiscountPolicy()),
-                        new Movie("X-Man", Duration.ofMinutes(120), Money.wons(12000L), new AmountDiscountPolicy()),
+                        new Movie("기생충", Duration.ofMinutes(110), Money.wons(10000L), new AmountDiscountPolicy(Money.wons(1000L))),
+                        new Movie("X-Man", Duration.ofMinutes(120), Money.wons(12000L), new AmountDiscountPolicy(Money.wons(1500L))),
                         new Movie("StarWars", Duration.ofMinutes(135), Money.wons(12000L), new PercentDiscountPolicy()),
                         new Movie("Avengers", Duration.ofMinutes(144), Money.wons(11000L), new PercentDiscountPolicy())
                 )

@@ -14,4 +14,8 @@ public class Movie {
         this.fee = fee;
         this.discountPolicy = discountPolicy;
     }
+
+    public Money calculateDiscountedPrice() {
+        return fee.minus(discountPolicy.calculateDiscountAmount());
+    }
 }
