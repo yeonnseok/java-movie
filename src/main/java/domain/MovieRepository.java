@@ -18,4 +18,8 @@ public class MovieRepository {
                 )
         );
     }
+
+    public static List<Movie> movies() {
+        return movies;
+    }
 }

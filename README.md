@@ -2,9 +2,9 @@
 
 ### 요구조건
 
-- [ ] 데이터 세팅
+- [x] 데이터 세팅
     - [x] MovieRepository 영화 순번 (id), 영화 제목(title), 러닝타임(runningTime), 가격(fee), 할인 정책(discountPolicy) 
-    - [ ] ScreeningRepository 영화(movie), 상영회차(sequence), 시작 시간(whenScreened)
+    - [x] ScreeningRepository 영화(movie), 상영회차(sequence), 시작 시간(whenScreened)
 - [ ] 영화 선택 (Movie)
     - [ ] 처음에 보고자하는 영화 id 값으로 영화를 선택한다. ("보고싶은 영화를 선택해주세요")
     - [ ] "1. 기생충 144분 9000원"
