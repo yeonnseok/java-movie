@@ -6,6 +6,7 @@ public class InputView {
     private static final Scanner SCANNER = new Scanner(System.in);
 
     public static int inputMovieIndex() {
+        OutputView.printInputMovieIndexGuideMessage();
         try {
             return inputIntValueWithValidation();
         } catch (IllegalArgumentException e) {
@@ -15,6 +16,7 @@ public class InputView {
     }
 
     public static int inputScreeningSequence() {
+        OutputView.printInputScreeningSequenceGuideMessage();
         try {
             return inputIntValueWithValidation();
         } catch (IllegalArgumentException e) {
