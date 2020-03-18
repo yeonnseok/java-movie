@@ -10,6 +10,7 @@ public class OutputView {
     private static final String SPACE = " ";
     private static final String INPUT_MOVIE_INDEX_GUIDE_MESSAGE = "보고싶은 영화를 선택해주세요.";
     private static final String INPUT_SCREENING_SEQUENCE_GUIDE_MESSAGE = "보고싶은 회차를 선택해주세요.";
+    private static final String INPUT_AUDIENCE_COUNT_GUIDE_MESSAGE = "예매 인원 수를 입력해 주세요.";
 
     public static void printInputMovieIndexGuideMessage() {
         System.out.println(INPUT_MOVIE_INDEX_GUIDE_MESSAGE);
@@ -39,5 +40,9 @@ public class OutputView {
                         SPACE + screening.getSequence() +
                         SPACE + screening.getStartTime().toString())
                 .forEach(System.out::println);
+    }
+
+    public static void printInputAudienceCountGuideMessage() {
+        System.out.println(INPUT_AUDIENCE_COUNT_GUIDE_MESSAGE);
     }
 }

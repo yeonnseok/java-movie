@@ -25,6 +25,16 @@ public class InputView {
         }
     }
 
+    public static int inputAudienceCount() {
+        OutputView.printInputAudienceCountGuideMessage();
+        try {
+            return inputIntValueWithValidation();
+        } catch (IllegalArgumentException e) {
+            OutputView.printExceptionMessage(e.getMessage());
+            return inputAudienceCount();
+        }
+    }
+
     private static int inputIntValueWithValidation() {
         try {
             return Integer.parseInt(SCANNER.nextLine());

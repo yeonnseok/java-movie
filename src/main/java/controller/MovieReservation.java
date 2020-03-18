@@ -1,9 +1,6 @@
 package controller;
 
-import domain.Movie;
-import domain.MovieRepository;
-import domain.Screening;
-import domain.ScreeningRepository;
+import domain.*;
 import view.InputView;
 import view.OutputView;
 
@@ -16,6 +13,9 @@ public class MovieReservation {
     public void run() {
         Movie selectedMovie = chooseMovie();
         Screening selectedScreening = chooseScreening(selectedMovie);
+        AudienceCount audienceCount = inputAudienceCountWithValidation();
+        createReservation(selectedScreening, audienceCount);
+
     }
 
     private Movie chooseMovie() {
@@ -30,7 +30,7 @@ public class MovieReservation {
                     .filter(movie -> movie.isSameIndex(inputIndex))
                     .findFirst()
                     .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 영화입니다."));
-        } catch(IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             OutputView.printExceptionMessage(e.getMessage());
             return chooseMovieWithValidatedIndex();
         }
@@ -49,9 +49,19 @@ public class MovieReservation {
                     .filter(screening -> screening.isSequence(inputSequence))
                     .findFirst()
                     .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 회차입니다."));
-        } catch(IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             OutputView.printExceptionMessage(e.getMessage());
             return chooseScreeningWithValidation(selectedMovie);
         }
     }
+
+    private AudienceCount inputAudienceCountWithValidation() {
+        try {
+            return new AudienceCount(InputView.inputAudienceCount());
+        } catch (IllegalArgumentException e) {
+            OutputView.printExceptionMessage(e.getMessage());
+            return inputAudienceCountWithValidation();
+        }
+    }
+
 }
