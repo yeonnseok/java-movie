@@ -36,6 +36,7 @@ public class InputView {
     }
 
     public static int inputPayment() {
+        OutputView.printInputPaymentGuideMessage();
         try {
             return inputIntValueWithValidation();
         } catch (IllegalArgumentException e) {

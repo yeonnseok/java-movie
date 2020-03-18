@@ -1,7 +1,5 @@
 package domain;
 
-import java.time.LocalDateTime;
-
 public class Reservation {
     private final Screening screening;
     private final AudienceCount audienceCount;
@@ -15,7 +13,15 @@ public class Reservation {
         return screening.calculateTotalFee(audienceCount);
     }
 
-    public LocalDateTime getStartTime() {
-        return screening.getStartTime();
+    public String getMovieTitle() {
+        return screening.getMovieTitle();
+    }
+
+    public int getSequence() {
+        return screening.getSequence();
+    }
+
+    public int getAudienceCount() {
+        return audienceCount.getAudienceCount();
     }
 }

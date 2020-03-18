@@ -14,19 +14,11 @@ public class MovieReservation {
         Movie selectedMovie = chooseMovie();
         Screening selectedScreening = chooseScreening(selectedMovie);
         AudienceCount audienceCount = inputAudienceCountWithValidation();
+
         Payment payment = inputPaymentWithValidation(selectedScreening, audienceCount);
         if (payment.isNotCancel()) {
+            OutputView.printFinalTotalFee(payment.getFinalTotalFee(selectedScreening, audienceCount));
             createReservation(selectedScreening, audienceCount);
-        }
-    }
-
-    private Payment inputPaymentWithValidation(Screening screening, AudienceCount audienceCount) {
-        OutputView.printTotalFee(screening.calculateTotalFee(audienceCount));
-        try {
-            return Payment.of(InputView.inputPayment());
-        } catch (IllegalArgumentException e) {
-            OutputView.printExceptionMessage(e.getMessage());
-            return inputPaymentWithValidation(screening, audienceCount);
         }
     }
 
@@ -76,8 +68,18 @@ public class MovieReservation {
         }
     }
 
+    private Payment inputPaymentWithValidation(Screening screening, AudienceCount audienceCount) {
+        OutputView.printTotalFee(screening.calculateTotalFee(audienceCount));
+        try {
+            return Payment.of(InputView.inputPayment());
+        } catch (IllegalArgumentException e) {
+            OutputView.printExceptionMessage(e.getMessage());
+            return inputPaymentWithValidation(screening, audienceCount);
+        }
+    }
+
     private void createReservation(Screening selectedScreening, AudienceCount audienceCount) {
         Reservation reservation = new Reservation(selectedScreening, audienceCount);
-
+        OutputView.printReservation(reservation);
     }
 }

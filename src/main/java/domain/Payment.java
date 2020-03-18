@@ -24,6 +24,10 @@ public enum Payment {
                 .orElseThrow(() -> new IllegalArgumentException(PAYMENT_NOT_FOUND_EXCEPTION_MESSAGE));
     }
 
+    public Money getFinalTotalFee(Screening screening, AudienceCount audienceCount) {
+        return screening.calculateTotalFee(audienceCount).times(discountRatio);
+    }
+
     public boolean isNotCancel() {
         return this != CANCEL;
     }
