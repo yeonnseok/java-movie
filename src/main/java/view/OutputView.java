@@ -1,5 +1,6 @@
 package view;
 
+import domain.Money;
 import domain.Movie;
 import domain.Screening;
 
@@ -44,5 +45,9 @@ public class OutputView {
 
     public static void printInputAudienceCountGuideMessage() {
         System.out.println(INPUT_AUDIENCE_COUNT_GUIDE_MESSAGE);
+    }
+
+    public static void printTotalFee(Money calculateTotalFee) {
+        System.out.println(String.format("결제금액은 %d원 입니다.", calculateTotalFee.getAmount()));
     }
 }

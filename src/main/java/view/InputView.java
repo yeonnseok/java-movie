@@ -35,6 +35,15 @@ public class InputView {
         }
     }
 
+    public static int inputPayment() {
+        try {
+            return inputIntValueWithValidation();
+        } catch (IllegalArgumentException e) {
+            OutputView.printExceptionMessage(e.getMessage());
+            return inputPayment();
+        }
+    }
+
     private static int inputIntValueWithValidation() {
         try {
             return Integer.parseInt(SCANNER.nextLine());
