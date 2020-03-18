@@ -18,7 +18,7 @@ public class OutputView {
     private static final String INPUT_PAYMENT_GUIDE_MESSAGE = "카드는 1번 현금은 2번 취소는 3번을 눌러주세요.";
     private static final String FINAL_TOTAL_FEE_MESSAGE_FORMAT = "최종 %d 원을 결제합니다.";
     private static final String RESERVATION_CONTENTS_HEADER = "예매 내역";
-    private static final String RESERVATION_CONTENTS_FORMAT = "%s %d회차 %d명 %d 원으로 예약되었습니다.";
+    private static final String RESERVATION_CONTENTS_FORMAT = "%s %d회차 %d명 %d원으로 예약되었습니다.";
 
 
     public static void printInputMovieIndexGuideMessage() {
@@ -67,14 +67,14 @@ public class OutputView {
         System.out.println(String.format(FINAL_TOTAL_FEE_MESSAGE_FORMAT, finalTotalFee.getAmount()));
     }
 
-    public static void printReservation(Reservation reservation) {
+    public static void printReservation(Reservation reservation, Money finalTotalFee) {
         System.out.print(NEWLINE);
         System.out.println(RESERVATION_CONTENTS_HEADER);
         System.out.println(String.format(RESERVATION_CONTENTS_FORMAT,
                 reservation.getMovieTitle(),
                 reservation.getSequence(),
                 reservation.getAudienceCount(),
-                reservation.getTotalFee().getAmount()));
+                finalTotalFee.getAmount()));
     }
 
 }

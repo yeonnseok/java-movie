@@ -17,8 +17,9 @@ public class MovieReservation {
 
         Payment payment = inputPaymentWithValidation(selectedScreening, audienceCount);
         if (payment.isNotCancel()) {
-            OutputView.printFinalTotalFee(payment.getFinalTotalFee(selectedScreening, audienceCount));
-            createReservation(selectedScreening, audienceCount);
+            Money finalTotalFee = payment.getFinalTotalFee(selectedScreening, audienceCount);
+            OutputView.printFinalTotalFee(finalTotalFee);
+            createReservation(selectedScreening, audienceCount, finalTotalFee);
         }
     }
 
@@ -78,8 +79,8 @@ public class MovieReservation {
         }
     }
 
-    private void createReservation(Screening selectedScreening, AudienceCount audienceCount) {
+    private void createReservation(Screening selectedScreening, AudienceCount audienceCount, Money finalTotalFee) {
         Reservation reservation = new Reservation(selectedScreening, audienceCount);
-        OutputView.printReservation(reservation);
+        OutputView.printReservation(reservation, finalTotalFee);
     }
 }
