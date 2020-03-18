@@ -20,12 +20,12 @@ public class MovieTest {
 
     @BeforeEach
     void setUp() {
-        movie = new Movie("기생충", Duration.ofMinutes(110), Money.wons(9000L),
+        movie = new Movie(1, "기생충", Duration.ofMinutes(110), Money.wons(9000L),
                 new AmountDiscountPolicy(Money.wons(2000L),
                         new SequenceCondition(1),
                         new PeriodCondition(DayOfWeek.MONDAY, LocalTime.of(7, 0), LocalTime.of(10, 0))
                 ));
-        movie2 = new Movie("스파이더맨", Duration.ofMinutes(100), Money.wons(10000L),
+        movie2 = new Movie(2, "스파이더맨", Duration.ofMinutes(100), Money.wons(10000L),
                 new PercentDiscountPolicy(0.05,
                         new SequenceCondition(1),
                         new SequenceCondition(2)

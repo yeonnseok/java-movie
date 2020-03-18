@@ -26,7 +26,19 @@ public class Screening {
         return this.sequence == sequence;
     }
 
+    public boolean isSameMovie(Movie selectedMovie) {
+        return movie.equals(selectedMovie);
+    }
+
     public LocalDateTime getStartTime() {
         return whenScreened;
+    }
+
+    public String getMovieTitle() {
+        return movie.getTitle();
+    }
+
+    public int getSequence() {
+        return sequence;
     }
 }

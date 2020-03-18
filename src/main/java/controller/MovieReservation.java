@@ -15,22 +15,43 @@ public class MovieReservation {
 
     public void run() {
         Movie selectedMovie = chooseMovie();
+        Screening selectedScreening = chooseScreening(selectedMovie);
     }
 
     private Movie chooseMovie() {
-        OutputView.printListOf(movies);
+        OutputView.printListOfMovies(movies);
         return chooseMovieWithValidatedIndex();
     }
 
     private Movie chooseMovieWithValidatedIndex() {
         try {
+            int inputIndex = InputView.inputMovieIndex();
             return movies.stream()
-                    .filter(movie -> movie.isSameIndex(InputView.inputMovieIndex()))
+                    .filter(movie -> movie.isSameIndex(inputIndex))
                     .findFirst()
                     .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 영화입니다."));
         } catch(IllegalArgumentException e) {
             OutputView.printExceptionMessage(e.getMessage());
             return chooseMovieWithValidatedIndex();
+        }
+    }
+
+    private Screening chooseScreening(Movie selectedMovie) {
+        OutputView.printListOfScreenings(screenings, selectedMovie);
+        return chooseScreeningWithValidation(selectedMovie);
+    }
+
+    private Screening chooseScreeningWithValidation(Movie selectedMovie) {
+        try {
+            int inputSequence = InputView.inputScreeningSequence();
+            return screenings.stream()
+                    .filter(screening -> screening.isSameMovie(selectedMovie))
+                    .filter(screening -> screening.isSequence(inputSequence))
+                    .findFirst()
+                    .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 회차입니다."));
+        } catch(IllegalArgumentException e) {
+            OutputView.printExceptionMessage(e.getMessage());
+            return chooseScreeningWithValidation(selectedMovie);
         }
     }
 }

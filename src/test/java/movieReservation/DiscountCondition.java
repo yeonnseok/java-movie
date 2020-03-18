@@ -19,7 +19,7 @@ public class DiscountCondition {
 
     @BeforeEach
     void setUp() {
-        movie = new Movie("기생충", Duration.ofMinutes(110), Money.wons(9000L),
+        movie = new Movie(1, "기생충", Duration.ofMinutes(110), Money.wons(9000L),
                 new AmountDiscountPolicy(Money.wons(2000L)));
         screening = new Screening(movie, 1, LocalDateTime.now());
     }

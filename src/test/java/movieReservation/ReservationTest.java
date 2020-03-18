@@ -17,7 +17,7 @@ public class ReservationTest {
 
     @BeforeEach
     void setUp() {
-        movie = new Movie("기생충", Duration.ofMinutes(110), Money.wons(9000L),
+        movie = new Movie(1, "기생충", Duration.ofMinutes(110), Money.wons(9000L),
                 new AmountDiscountPolicy(Money.wons(2000L), new SequenceCondition(1)));
         screening = new Screening(movie, 1, LocalDateTime.now());
         audienceCount = new AudienceCount(5);
